@@ -16,7 +16,7 @@ const getBasePath = () => {
 
 const data: ISiteMetadataResult = {
   siteTitle: 'Harus Running Page',
-  siteUrl: 'https://run.azusachino.icu',
+  siteUrl: 'https://azusachino.github.io/running_page',
   logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtc69JxHNcmN1ETpMUX4dozAgAN6iPjWalQ&usqp=CAU',
   description: 'Personal running page',
   navLinks: [
