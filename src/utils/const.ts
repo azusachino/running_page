@@ -6,7 +6,9 @@
   // 'pk.eyJ1IjoieWlob25nMDYxOCIsImEiOiJjbWYxdXR4YncwMTJtMm5zOTE4eTZpMGdtIn0.OnsXdwkZFztR8a5Ph_T-xg';
 
 // Mapbox API token, run.azusachino.icu
-const MAPBOX_TOKEN = 'pk.eyJ1IjoibWlrdWZhbjIwMzkiLCJhIjoiY21mMmtiOW4xMGI0eTJqc2JiYnRuMGQ3MyJ9.pOsE429YwsMHY2-A8Il3kw';
+// const MAPBOX_TOKEN = 'pk.eyJ1IjoibWlrdWZhbjIwMzkiLCJhIjoiY21mMmtiOW4xMGI0eTJqc2JiYnRuMGQ3MyJ9.pOsE429YwsMHY2-A8Il3kw';
+// azusachino.github.io/running_page
+const MAPBOX_TOKEN = 'pk.eyJ1IjoibWlrdWZhbjIwMzkiLCJhIjoiY21rbm8wc2dzMHEzYzNnczV1Z2tvcHpubSJ9.xwepItLqgr-DgFib_AqUZA';
 
 const MUNICIPALITY_CITIES_ARR = [
   '北京市',
@@ -16,6 +18,7 @@ const MUNICIPALITY_CITIES_ARR = [
   '香港特别行政区',
   '澳门特别行政区',
 ];
+
 const MAP_LAYER_LIST = [
   'road-label',
   'waterway-label',
