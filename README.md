@@ -189,8 +189,8 @@ git clone https://github.com/yihong0618/running_page.git --depth=1
 
 ```bash
 pip3 install -r requirements.txt
-npm install -g corepack && corepack enable && pnpm install
-pnpm develop
+curl -fsSL https://bun.sh/install | bash && bun install
+bun run develop
 ```
 
 Open your browser and visit <http://localhost:5173/>
@@ -1187,7 +1187,7 @@ For more display effects, see:
 
 5. If you want to deploy your running_page to xxx.github.io instead of xxx.github.io/running_page or redirect your GitHub Pages to a custom domain, you need to do three things:
    - Rename your forked running_page repository to `xxx.github.io`, where xxx is your GitHub username
-   - Modify the Build module in gh-pages.yml, remove `${{ github.event.repository.name }}` and change to `run: PATH_PREFIX=/ pnpm build`
+   - Modify the Build module in gh-pages.yml, remove `${{ github.event.repository.name }}` and change to `run: PATH_PREFIX=/ bun run build`
    - In `src/static/site-metadata.ts`, set siteUrl: '' or your custom domain URL
 
 </details>

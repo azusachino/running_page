@@ -12,13 +12,11 @@ RUN sed -i 's@http://archive.ubuntu.com/ubuntu/@https://mirrors.tuna.tsinghua.ed
   && pip3 config set global.index-url https://mirrors.aliyun.com/pypi/simple/ \
   && pip3 install -r requirements.txt
 
-FROM node:18  AS develop-node
+FROM oven/bun:1 AS develop-node
 WORKDIR /root/running_page
 COPY ./package.json /root/running_page/package.json
-COPY ./pnpm-lock.yaml /root/running_page/pnpm-lock.yaml
-RUN npm config set registry https://registry.npmmirror.com \
-  && corepack enable \
-  && COREPACK_NPM_REGISTRY=https://registry.npmmirror.com pnpm install
+COPY ./bun.lock /root/running_page/bun.lock
+RUN bun install --frozen-lockfile
 
 FROM develop-py AS data
 ARG app
@@ -62,7 +60,7 @@ RUN python3 run_page/gen_svg.py --from-db --title "my running page" --type grid 
 FROM develop-node AS frontend-build
 WORKDIR /root/running_page
 COPY --from=data /root/running_page /root/running_page
-RUN pnpm run build
+RUN bun run build
 
 FROM nginx:alpine AS web
 COPY --from=frontend-build /root/running_page/dist /usr/share/nginx/html/

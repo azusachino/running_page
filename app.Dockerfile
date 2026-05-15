@@ -36,7 +36,7 @@ RUN python3 run_page/gen_svg.py --from-db --title "harus running page" --type gr
 FROM node:local AS frontend-build
 WORKDIR /root/running_page
 COPY --from=data /root/running_page /root/running_page
-RUN pnpm run build
+RUN bun run build
 
 FROM nginx:alpine AS web
 COPY --from=frontend-build /root/running_page/dist /usr/share/nginx/html/

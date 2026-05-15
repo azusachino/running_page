@@ -199,8 +199,8 @@ git clone https://github.com/yihong0618/running_page.git --depth=1
 
 ```bash
 pip3 install -r requirements.txt
-npm install -g corepack && corepack enable && pnpm install
-pnpm develop
+curl -fsSL https://bun.sh/install | bash && bun install
+bun run develop
 ```
 
 访问 <http://localhost:5173/> 查看
@@ -1312,7 +1312,7 @@ python3 run_page/auto_share_sync.py --api_key xxxxxxxxx --base_url xxxxxxxx --da
 
 5. 如果想把你的 running_page 部署在 xxx.github.io 而不是 xxx.github.io/run_page 亦或是想要添加自定义域名于 GitHub Pages，需要做三点
    - 修改你的 fork 的 running_page 仓库改名为 xxx.github.io, xxx 是你 github 的 username
-   - 修改 gh-pages.yml 中的 Build 模块，删除 `${{ github.event.repository.name }}` 改为`run: PATH_PREFIX=/ pnpm build` 即可
+   - 修改 gh-pages.yml 中的 Build 模块，删除 `${{ github.event.repository.name }}` 改为`run: PATH_PREFIX=/ bun run build` 即可
    - 修改 src/static/site-metadata.ts 中 `siteUrl: ''` 或是添加你的自定义域名，`siteUrl: '[your_own_domain]'`，即可
 
 </details>
